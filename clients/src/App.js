@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
 import PostCreate from './PostCreate';
 import PostList from './PostList';
-export default() => {
-    return <div>
-    <h1><i><u>Post IT</u></i></h1>
-    <PostList />
-    <hr />
-    <PostCreate/>
-    </div>;
+
+export default () => {
+  return (
+    <div className="container">
+      <h1>Create Post</h1>
+      <PostCreate />
+      <hr />
+      <h1>Posts</h1>
+      <PostList />
+    </div>
+  );
 };

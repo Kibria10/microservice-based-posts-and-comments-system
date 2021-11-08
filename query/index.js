@@ -1,35 +1,38 @@
+const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const express = require('express');
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 const posts = {};
 
-app.get('/posts', (req, res)=>{
-    res.send(posts);
+app.get('/posts', (req, res) => {
+  res.send(posts);
 });
 
+app.post('/events', (req, res) => {
+  const { type, data } = req.body;
 
-app.post('/events', (req, res)=>{
+  if (type === 'PostCreated') {
+    const { id, title } = data;
 
-    if(type == "PostCreated"){
-    const{id, title} = data;
-    post[id] = {id, title, comments: []};
-    }
+    posts[id] = { id, title, comments: [] };
+  }
 
-    if(type == "CommentCreated"){
-        const{id, content, postId} = data;
-        const post = posts[postId];
-        post.comments.push({id, content});
-    }
+  if (type === 'CommentCreated') {
+    const { id, content, postId } = data;
 
-    res.send({});
+    const post = posts[postId];
+    post.comments.push({ id, content });
+  }
+
+  console.log(posts);
+
+  res.send({});
 });
 
-
-app.listen(4002, ()=>{
-console.log('Listening to port 4002');
-
+app.listen(4002, () => {
+  console.log('Listening on 4002');
 });

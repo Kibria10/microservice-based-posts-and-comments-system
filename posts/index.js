@@ -15,6 +15,8 @@ app.get('/posts', (req, res) => {
 });
 
 app.post('/posts', async (req, res) => {
+
+try {
   const id = randomBytes(4).toString('hex');
   const { title } = req.body;
 
@@ -32,6 +34,13 @@ app.post('/posts', async (req, res) => {
   });
 
   res.status(201).send(posts[id]);
+
+  
+} catch (error) {
+  console.log(error);
+  
+}
+
 });
 
 app.post('/events', (req, res) => {

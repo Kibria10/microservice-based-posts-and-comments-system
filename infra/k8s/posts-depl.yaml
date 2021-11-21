@@ -23,7 +23,7 @@ metadata:
 spec:
   selector:
     app: posts
-  ports: 
+  ports:
     - name: posts
       protocol: TCP
       port: 4000

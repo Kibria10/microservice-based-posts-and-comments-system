@@ -23,7 +23,7 @@ metadata:
 spec:
   selector:
     app: events-bus
-  ports: 
+  ports:
     - name: events-bus
       protocol: TCP
       port: 4005

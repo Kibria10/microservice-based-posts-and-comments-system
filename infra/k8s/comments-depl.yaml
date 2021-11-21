@@ -23,7 +23,7 @@ metadata:
 spec:
   selector:
     app: comments
-  ports: 
+  ports:
     - name: comments
       protocol: TCP
       port: 4001

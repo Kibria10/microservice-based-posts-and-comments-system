@@ -23,7 +23,7 @@ metadata:
 spec:
   selector:
     app: query
-  ports: 
+  ports:
     - name: query
       protocol: TCP
       port: 4002
